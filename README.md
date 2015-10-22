@@ -1,4 +1,4 @@
-Particleground
+-Particleground
 ==============
 
 A JavaScript plugin for snazzy background particle systems. Includes an optional parallax effect controlled by the mouse on desktop devices and gyroscope on mobile devices. Works in any browser that supports HTML5 canvas.
@@ -80,6 +80,18 @@ Determines how many particles will be generated: one particle every n pixels.
     7
 
 Dot size
+
+### particleMinRadius
+
+    1
+
+Minimum size of the dot when `particleMinRadius` and `particleMaxRadius` are different.
+
+### particleMaxRadius
+
+    1
+
+Maximum size of the dot when `particleMinRadius` and `particleMaxRadius` are different.
 
 ### lineWidth
 
