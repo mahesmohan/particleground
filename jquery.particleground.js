@@ -198,6 +198,11 @@
       }
       // Random particle speed, within min and max values
       this.speed = {}
+      if(options.particleMaxRadius<1) {
+        this.particleRadius = options.particleRadius;
+      } else {
+        this.particleRadius = Math.floor((Math.random() * options.particleMaxRadius) + options.particleMinRadius);
+      }
       switch (options.directionX) {
         case 'left':
           this.speed.x = +(-options.maxSpeedX + (Math.random() * options.maxSpeedX) - options.minSpeedX).toFixed(2);
@@ -230,7 +235,7 @@
     Particle.prototype.draw = function() {
       // Draw circle
       ctx.beginPath();
-      ctx.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, options.particleRadius / 2, 0, Math.PI * 2, true);
+      ctx.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, this.particleRadius / 2, 0, Math.PI * 2, true);
       ctx.closePath();
       ctx.fill();
 
@@ -383,6 +388,8 @@
     dotColor: '#666666',
     lineColor: '#666666',
     particleRadius: 7, // Dot size
+    particleMaxRadius: 0, // Maximum dot size, if you want dots of multiple sizes
+    particleMinRadius: 1, // Minimum dot size, if you want dots of multiple sizes
     lineWidth: 1,
     curvedLines: false,
     proximity: 100, // How close two dots need to be before they join
