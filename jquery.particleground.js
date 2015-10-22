@@ -198,7 +198,7 @@
       }
       // Random particle speed, within min and max values
       this.speed = {}
-      if(options.particleMaxRadius<1) {
+      if(options.particleMaxRadius==options.particleMinRadius) {
         this.particleRadius = options.particleRadius;
       } else {
         this.particleRadius = Math.floor((Math.random() * options.particleMaxRadius) + options.particleMinRadius);
@@ -388,7 +388,7 @@
     dotColor: '#666666',
     lineColor: '#666666',
     particleRadius: 7, // Dot size
-    particleMaxRadius: 0, // Maximum dot size, if you want dots of multiple sizes
+    particleMaxRadius: 1, // Maximum dot size, if you want dots of multiple sizes
     particleMinRadius: 1, // Minimum dot size, if you want dots of multiple sizes
     lineWidth: 1,
     curvedLines: false,
